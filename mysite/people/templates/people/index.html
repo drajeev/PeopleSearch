@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-US">
+   <head>
+      {% load staticfiles %}
+      <link rel="stylesheet" type="text/css" href="{% static 'people/style.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap.min.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'people/slide.css' %}" />
+   </head>
+   <body>
+      <div class="container">
+         <div class="row text-center pad-top ">
+            <div class="col-md-12">
+               <table>
+                  <tr>
+                     <td>
+                        <img src="{% static 'people/images/zeomega-jlogin-logo.gif' %}" alt="Mountain View" style="width:200px;height:110px;">
+                     </td>
+                     <td>
+                        <img src="{% static 'people/images/ze-pp-login-graphic.gif' %}" alt="Mountain View" style="width:452px;height:110px;">
+                     </td>
+                     <td>
+                        <div id="content-slider">
+                           <div id="slider">
+                              <div id="mask">
+                                 <ul>
+                                    <li id="first" class="firstanimation">
+                                       <a href="#">
+                                       <img src="{% static 'people/images/palyam.jpg' %}" alt="Mountain View" style="width:500px;height:110px;">
+                                       </a>
+                                       <div class="tooltip">
+                                          <h1>Cougar</h1>
+                                       </div>
+                                    </li>
+                                    <li id="second" class="secondanimation">
+                                       <a href="#">
+                                       <img src="{% static 'people/images/vc.jpg' %}" alt="Mountain View" style="width:500px;height:110px;">
+                                       </a>
+                                       <div class="tooltip">
+                                          <h1>Lions</h1>
+                                       </div>
+                                    </li>
+                                    <li id="third" class="thirdanimation">
+                                       <a href="#">
+                                       <img src="{% static 'people/images/rlp.jpg' %}" alt="Mountain View" style="width:500px;height:110px;">
+                                       </a>
+                                       <div class="tooltip">
+                                          <h1>Lions</h1>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <br/>
+         <div class="row text-center pad-top ">
+         </div>
+         {% if saved %}
+         <p>Saved new Profile successfully</p>
+         {% endif %}
+         <div class="row  pad-top">
+            <div class="col-md-6">
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <center>
+                        <h2><font color = '#9999FF'>ZeOmega People Search</font></h2>
+                     </center>
+                  </div>
+                  <div class="panel-body">
+                     <form role="form" action="." method="post">
+                        {% csrf_token %}
+                        <br/>
+                        <div class="form-group input-group">
+                           <span class="input-group-addon"><i class="fa fa-circle-o-notch"  >Enter Name</i></span>
+                           <input type="text" name="search" class="form-control" placeholder="Type Name" required />
+                        </div>
+                        <center>
+                           <button type="submit" class="btn btn-info" value="Search">Search</button>
+                        </center>
+                        <a href="{% url 'newProfile' %}" class="text-center new-account">Add Your Profile </a>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         {% for emp in emp_obj %}
+         <div class="col-md-6">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <center>
+                     <h2><font color = '#9999FF'>ZeOmega People Search Results</font></h2>
+                  </center>
+               </div>
+               <div class="panel-body">
+                  {% if emp.image %}
+                  <div align="center">
+                     <img class="img-circle" src="{{ emp.image.url }}" alt="{{ emp.image.name }}" width="200px" style="border:4px solid #ddd">
+                  </div>
+                  <br>
+                  {% endif %}
+                  <table class="table table-striped">
+                     <tbody>
+                        <tr>
+                           <td>Name</td>
+                           <td>{{emp.first_name}} {{emp.last_name}}</td>
+                        </tr>
+                        <tr>
+                           <td>EmpID</td>
+                           <td>{{emp.emp_id}}</td>
+                        </tr>
+                        <tr>
+                           <td>Designation</td>
+                           <td>{{emp.emp_deg}}</td>
+                        </tr>
+                        <tr>
+                           <td>Reporting Manager</td>
+                           <td>{{emp.reporting_name}}</td>
+                        </tr>
+                        <tr>
+                           <td>Seating Location</td>
+                           <td>{{emp.seating_location}}</td>
+                        </tr>
+                        <tr>
+                           <td>Extension	</td>
+                           <td>{{emp.extn_no}}</td>
+                        </tr>
+                        <tr>
+                           <td>Mobile Number</td>
+                           <td>{{emp.mobile_no}}</td>
+                        </tr>
+                        <tr>
+                           <td>Chat ID</td>
+                           <td>{{emp.email_id}}</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+      </div>

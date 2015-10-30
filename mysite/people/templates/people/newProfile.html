@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'people/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'people/slide.css' %}" />
+</head>
+<body>
+<div class="container">
+        <div class="row text-center pad-top ">
+            <div class="col-md-12">
+<table>
+                  <tr>
+                     <td>
+                        <img src="{% static 'people/images/zeomega-jlogin-logo.gif' %}" alt="Mountain View" style="width:200px;height:110px;">
+                     </td>
+                     <td>
+                        <img src="{% static 'people/images/ze-pp-login-graphic.gif' %}" alt="Mountain View" style="width:452px;height:110px;">
+                     </td>
+                     <td>
+                        <div id="content-slider">
+                           <div id="slider">
+                              <div id="mask">
+                                 <ul>
+                                    <li id="first" class="firstanimation">
+                                       <a href="#">
+                                       <img src="{% static 'people/images/palyam.jpg' %}" alt="Mountain View" style="width:500px;height:110px;">
+                                       </a>
+                                       <div class="tooltip">
+                                          <h1>Cougar</h1>
+                                       </div>
+                                    </li>
+                                    <li id="second" class="secondanimation">
+                                       <a href="#">
+                                       <img src="{% static 'people/images/vc.jpg' %}" alt="Mountain View" style="width:500px;height:110px;">
+                                       </a>
+                                       <div class="tooltip">
+                                          <h1>Lions</h1>
+                                       </div>
+                                    </li>
+                                    <li id="third" class="thirdanimation">
+                                       <a href="#">
+                                       <img src="{% static 'people/images/rlp.jpg' %}" alt="Mountain View" style="width:500px;height:110px;">
+                                       </a>
+                                       <div class="tooltip">
+                                          <h1>Lions</h1>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+        </div>
+		
+        <div class="row text-center pad-top ">
+            <div class="col-md-12">
+                <h2>ZeOmega People Search</h2>
+            </div>
+        </div>
+         <div class="row  pad-top">
+               
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong>   Register Yourself </strong>  
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+<br/>
+                                        {% if error %}
+                                        <div class="form-group input-group">
+                                            <ul type="square">
+                                            {% for key, name in  form.errors.items %}
+                                                <li>{{ key }} : {{name}}</li>
+                                            {% endfor %}
+                                            </ul>
+                                        </div>
+                                        {% endif %}
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  >First Name</i></span>
+                                            <input type="text" name="first_name" class="form-control" placeholder="First Name"  required/>
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  >Last Name</i></span>
+                                            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required/>
+                                        </div>
+                                         <div class="form-group input-group">
+                                            <span class="input-group-addon">Employee ID</span>
+                                            <input type="text" name="emp_id" class="form-control" placeholder="Employee ID" required/>
+                                        </div>
+                                      <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  >Email Id   </i></span>
+                                            <input type="text" name="email_id" class="form-control" placeholder="Email Id" required/>
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Designation</span>
+                                            <input type="text" name="emp_deg" class="form-control" placeholder="Designation" required/>
+                                     </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Department</span>
+                                            <input type="text" name="department_name" class="form-control" placeholder="Department" required/>
+                                     </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Reporting Manager</span>
+                                            <input type="text" name="reporting_name" class="form-control" placeholder="Reporting Manager" required/>
+                                     </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Seating Location</span>
+                                            <input type="text" name="seating_location" class="form-control" placeholder="Seating Location" required/>
+                                     </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Mobile Number</span>
+                                            <input type="text" name="mobile_no" class="form-control" placeholder="Mobile Number" required/>
+                                     </div> 
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Extension</span>
+                                            <input type="text" name="extn_no" class="form-control" placeholder="Extension" required/>
+                                     </div>  
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon">Profile picture</span>
+                                            <input type="file" name="image" class="form-control" placeholder=""/>
+                                     </div>  
+									<div>                                   
+                                    	<button type="submit" class="btn btn-success" value="Register Me">Register Me</button>
+										<a href="{% url 'index' %}">
+                                        <button type="button" class="btn btn-danger " value="Cancel" >Cancel</button>
+                                        </a>
+									</div>
+
+                                    </form>
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+                
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/plugins/bootstrap.js"></script>
+   
+</body>
+</body>
+</html>
