@@ -38,16 +38,16 @@
 	-webkit-animation:cycletwo 10s linear infinite;		
 }
 #slider li.thirdanimation {
-	-moz-animation:cyclethree 25s linear infinite;
-	-webkit-animation:cyclethree 25s linear infinite;		
+	-moz-animation:cyclethree 10s linear infinite;
+	-webkit-animation:cyclethree 10s linear infinite;		
 }
 #slider li.fourthanimation {
-	-moz-animation:cyclefour 25s linear infinite;
-	-webkit-animation:cyclefour 25s linear infinite;		
+	-moz-animation:cyclefour 10s linear infinite;
+	-webkit-animation:cyclefour 10s linear infinite;		
 }
 #slider li.fifthanimation {
-	-moz-animation:cyclefive 25s linear infinite;
-	-webkit-animation:cyclefive 25s linear infinite;		
+	-moz-animation:cyclefive 10s linear infinite;
+	-webkit-animation:cyclefive 10s linear infinite;		
 }
 
 #slider .tooltip {

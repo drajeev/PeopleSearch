@@ -5,6 +5,7 @@
       <link rel="stylesheet" type="text/css" href="{% static 'people/style.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap.css' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap.min.css' %}" />
+      <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap-3.3.5/fonts' %}" />
       <link rel="stylesheet" type="text/css" href="{% static 'people/slide.css' %}" />
    </head>
    <body>
@@ -80,18 +81,15 @@
                            <input type="text" name="search" class="form-control" placeholder="Type Name" required />
                         </div>
                         <center>
-                           <button type="submit" class="btn btn-info" value="Search">Search</button>
+                           <button type="submit" class="btn btn-info" value="Search"><span class="glyphicon glyphicon-search"></span>Search</button>
                         </center>
                         <a href="{% url 'newProfile' %}" class="text-center new-account">Add Your Profile </a>
                      </form>
                   </div>
                </div>
             </div>
-         </div>
-      </div>
-      <div class="container">
-         {% for emp in emp_obj %}
-         <div class="col-md-6">
+<div class="col-md-6">
+ {% for emp in emp_obj %}
             <div class="panel panel-default">
                <div class="panel-heading">
                   <center>
@@ -103,6 +101,13 @@
                   <div align="center">
                      <img class="img-circle" src="{{ emp.image.url }}" alt="{{ emp.image.name }}" width="200px" style="border:4px solid #ddd">
                   </div>
+                   <div>     
+                 <a href="{% url 'newProfile' %}" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-edit">
+                  Edit
+                 </a>
+                </div>
+   
                   <br>
                   {% endif %}
                   <table class="table table-striped">
@@ -144,6 +149,7 @@
                </div>
             </div>
          </div>
+{% endfor %}
+         </div>
       </div>
-      {% endfor %}
       </div>
