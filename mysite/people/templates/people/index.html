@@ -99,10 +99,10 @@
                <div class="panel-body">
                   {% if emp.image %}
                   <div align="center">
-                     <img class="img-circle" src="{{ emp.image.url }}" alt="{{ emp.image.name }}" width="200px" style="border:4px solid #ddd">
+                     <img class="img-circle" src="{{ emp.image.url }}" alt="{{ emp.image.name }}" width="175px" height="175px" style="border:4px solid #ddd">
                   </div>
                    <div>     
-                 <a href="{% url 'newProfile' %}" class="btn btn-info btn-lg">
+                 <a href="{% url 'newProfile' %}" class="btn btn-info btn-md">
                     <span class="glyphicon glyphicon-edit">
                   Edit
                  </a>
